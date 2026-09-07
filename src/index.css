@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-offwhite: #F9F9F6;
+  --color-gold: #D4AF37;
+  --color-gold-light: #F3E5AB;
+  --color-gold-dark: #AA8C2C;
+}
+
+body {
+  background-color: var(--color-offwhite);
+  color: #333;
+  font-family: 'Inter', system-ui, sans-serif;
+  /* subtle vertical stripe pattern imitating Greek columns */
+  background-image: repeating-linear-gradient(
+    to right,
+    transparent,
+    transparent 60px,
+    rgba(212, 175, 55, 0.05) 60px,
+    rgba(212, 175, 55, 0.05) 62px
+  );
+}
