@@ -165,11 +165,24 @@ export default function F1ReflexGame({ roomData, role, updateRoomData, submitGam
   const currentResult = result && result.length >= currentRound ? result[currentRound - 1] : null;
 
   if (roomData?.status === 'evaluating') {
+     const cemalWins = result?.filter(r => r.winner === 'cemal').length || 0;
+     const zeynepWins = result?.filter(r => r.winner === 'zeynep').length || 0;
+     
+     let finalMessage = "İki araç da aynı hızda kalktı! (Berabere)";
+     let finalColor = "text-gray-600";
+     if (cemalWins > zeynepWins) {
+         finalMessage = "Cemal'inki daha hızlı kalktı!";
+         finalColor = "text-blue-600";
+     } else if (zeynepWins > cemalWins) {
+         finalMessage = "Zeynep'inki daha hızlı kalktı!";
+         finalColor = "text-pink-600";
+     }
+
      return (
-       <div className="max-w-2xl mx-auto text-center bg-white p-8 rounded-3xl shadow-xl border border-red/30">
+       <div className="max-w-2xl mx-auto text-center bg-white p-8 rounded-3xl shadow-xl border border-red-500/30">
           <Trophy size={64} className="mx-auto text-yellow-500 mb-6" />
-          <h2 className="text-4xl font-black mb-4">Yarış Bitti!</h2>
-          <p className="text-gray-600 mb-8">5 roundluk refleks testi sona erdi.</p>
+          <h2 className="text-4xl font-black mb-2">Yarış Bitti!</h2>
+          <h3 className={`text-3xl font-black mb-8 ${finalColor}`}>{finalMessage}</h3>
           
           <div className="space-y-4 mb-8 text-left">
             {result?.map((r, i) => (
@@ -179,7 +192,9 @@ export default function F1ReflexGame({ roomData, role, updateRoomData, submitGam
                    C: {r.cemalReaction === 99999 ? 'Hatalı Çıkış' : r.cemalReaction + 'ms'} | Z: {r.zeynepReaction === 99999 ? 'Hatalı Çıkış' : r.zeynepReaction + 'ms'}
                  </div>
                  <div className={`font-bold ${r.winner === 'cemal' ? 'text-blue-600' : r.winner === 'zeynep' ? 'text-pink-600' : 'text-gray-600'}`}>
-                   Kazanan: {r.winner === 'cemal' ? 'Cemal' : r.winner === 'zeynep' ? 'Zeynep' : 'Berabere'}
+                   {r.winner === 'draw' 
+                     ? 'Aynı anda kalktılar!' 
+                     : `${r.winner === 'cemal' ? 'Cemal' : 'Zeynep'} önce kalktı`}
                  </div>
                </div>
             ))}
@@ -268,7 +283,10 @@ export default function F1ReflexGame({ roomData, role, updateRoomData, submitGam
             </div>
 
             <div className="text-2xl font-black text-white mb-8">
-              Kazanan: <span className="text-red-500">{currentResult.winner === 'cemal' ? 'Cemal' : currentResult.winner === 'zeynep' ? 'Zeynep' : 'Berabere'}!</span>
+              {currentResult.winner === 'draw' 
+                ? <span className="text-gray-400">Herkes arabasını aynı anda kaldırdı!</span>
+                : <><span className="text-red-500">{currentResult.winner === 'cemal' ? 'Cemal' : 'Zeynep'}</span> arabasını daha önce kaldırdı!</>
+              }
             </div>
 
             {role === 'cemal' && (
