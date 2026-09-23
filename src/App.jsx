@@ -8,6 +8,7 @@ import ArchivePage from './pages/ArchivePage';
 import BestSellerGame from './games/BestSellerGame';
 import OppoPoppositeGame from './games/OppoPoppositeGame';
 import SexidentGame from './games/SexidentGame';
+import TimeStopGame from './games/TimeStopGame';
 import LobbyWrapper from './components/LobbyWrapper';
 
 import PetPage from './pages/PetPage';
@@ -92,7 +93,8 @@ function App() {
             <Route path="/pet" element={<PetPage />} />
             <Route path="/game/bestseller" element={<LobbyWrapper gameId="bestseller"><BestSellerGame /></LobbyWrapper>} />
             <Route path="/game/oppopopposite" element={<LobbyWrapper gameId="oppopopposite"><OppoPoppositeGame /></LobbyWrapper>} />
-            <Route path="/game/sexident" element={<LobbyWrapper gameId="sexident"><SexidentGame /></LobbyWrapper>} />
+            <Route path="/game/sexident" element={<LobbyWrapper gameId="sexident" timerLimit={0}><SexidentGame /></LobbyWrapper>} />
+            <Route path="/game/timestop" element={<LobbyWrapper gameId="timestop" timerLimit={0}><TimeStopGame /></LobbyWrapper>} />
           </Routes>
         </main>
       </div>

@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { useLobby } from '../store/useLobby';
 import { Users, Clock } from 'lucide-react';
 
-export default function LobbyWrapper({ gameId, children }) {
+export default function LobbyWrapper({ gameId, children, timerLimit = 65 }) {
   const { roomId, role, roomData, createRoom, joinRoom, pickRole, startGame, updateText, updateRoomData, submitGame } = useLobby(gameId);
   const [joinCode, setJoinCode] = useState('');
-  const [timeLeft, setTimeLeft] = useState(65);
+  const [timeLeft, setTimeLeft] = useState(timerLimit);
 
   useEffect(() => {
+    if (timerLimit === 0) return; // Disable auto timer for specific games
     if (roomData && roomData.status === 'playing') {
       const interval = setInterval(() => {
          const passed = Math.floor((Date.now() - roomData.timerStart) / 1000);
-         const remaining = Math.max(0, 65 - passed);
+         const remaining = Math.max(0, timerLimit - passed);
          setTimeLeft(remaining);
          if (remaining === 0) {
             submitGame();
@@ -19,7 +20,7 @@ export default function LobbyWrapper({ gameId, children }) {
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [roomData?.status, roomData?.timerStart]);
+  }, [roomData?.status, roomData?.timerStart, timerLimit]);
 
   if (!roomId) {
     return (

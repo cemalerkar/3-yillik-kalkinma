@@ -80,26 +80,26 @@ export default function HomePage() {
         </div>
 
         {/* Sexident Game Card */}
-        <div className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gold/20 hover:border-gold/50 transition-all hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] flex flex-col group md:col-span-2">
+        <div className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gold/20 hover:border-gold/50 transition-all hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] flex flex-col group">
           <div className="h-48 bg-gradient-to-br from-gray-900 to-black flex items-center justify-center border-b border-gold/10 relative overflow-hidden">
             {/* Decorative pillars */}
-            <div className="absolute left-10 top-0 bottom-0 w-8 flex justify-center opacity-40">
-              <div className="w-1 h-full bg-gold mx-1"></div>
-              <div className="w-1 h-full bg-gold mx-1"></div>
+            <div className="absolute left-4 top-0 bottom-0 w-8 flex justify-center opacity-40">
+              <div className="w-1 h-full bg-gold mx-0.5"></div>
+              <div className="w-1 h-full bg-gold mx-0.5"></div>
             </div>
-            <div className="absolute right-10 top-0 bottom-0 w-8 flex justify-center opacity-40">
-              <div className="w-1 h-full bg-gold mx-1"></div>
-              <div className="w-1 h-full bg-gold mx-1"></div>
+            <div className="absolute right-4 top-0 bottom-0 w-8 flex justify-center opacity-40">
+              <div className="w-1 h-full bg-gold mx-0.5"></div>
+              <div className="w-1 h-full bg-gold mx-0.5"></div>
             </div>
             
-            <h2 className="text-4xl font-black text-gold tracking-tight z-10 group-hover:scale-105 transition-transform flex items-center gap-2">
+            <h2 className="text-3xl font-black text-gold tracking-tight z-10 group-hover:scale-105 transition-transform flex items-center gap-2">
               Sexident Manifestosu
             </h2>
           </div>
           <div className="p-6 flex-1 flex flex-col">
-            <p className="text-gold-dark font-medium mb-2 italic">"Evrenin Sıkıcı Gezegenlerine Yetişkin Modu Getir!"</p>
+            <p className="text-gold-dark font-medium mb-2 italic">"Evrene Yetişkin Modu Getir!"</p>
             <p className="text-gray-600 mb-6 flex-1">
-              Farklı gezegenlerin varoluşsal ve fantastik krizlerini çözmek için bir araya gelin, ortak manifestonuzu yazın ve "Sexident" imzalarınızı atarak galaksiyi kurtarın!
+              Farklı gezegenlerin fantastik krizlerini çözmek için bir araya gelin, manifestonuzu yazın ve "Sexident" imzalarınızı atın!
             </p>
             <Link 
               to="/game/sexident" 
@@ -107,6 +107,38 @@ export default function HomePage() {
             >
               <Play size={20} />
               Konseye Bağlan
+            </Link>
+          </div>
+        </div>
+
+        {/* TimeStop Game Card */}
+        <div className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gold/20 hover:border-gold/50 transition-all hover:shadow-[0_8px_30px_rgba(212,175,55,0.15)] flex flex-col group">
+          <div className="h-48 bg-gradient-to-br from-blue-900 to-indigo-900 flex items-center justify-center border-b border-gold/10 relative overflow-hidden">
+            {/* Decorative pillars */}
+            <div className="absolute left-4 top-0 bottom-0 w-8 flex justify-center opacity-40">
+              <div className="w-1 h-full bg-blue-400 mx-0.5"></div>
+              <div className="w-1 h-full bg-blue-400 mx-0.5"></div>
+            </div>
+            <div className="absolute right-4 top-0 bottom-0 w-8 flex justify-center opacity-40">
+              <div className="w-1 h-full bg-blue-400 mx-0.5"></div>
+              <div className="w-1 h-full bg-blue-400 mx-0.5"></div>
+            </div>
+            
+            <h2 className="text-4xl font-black text-blue-100 tracking-tight z-10 group-hover:scale-105 transition-transform flex items-center gap-2">
+              Zaman Bükücü
+            </h2>
+          </div>
+          <div className="p-6 flex-1 flex flex-col">
+            <p className="text-blue-600 font-medium mb-2 italic">"Kim saniyelere daha iyi hükmedecek?"</p>
+            <p className="text-gray-600 mb-6 flex-1">
+              Rastgele belirlenen milisaniyelik hedef süreye en yakın zamanda dur butonuna bas! 5 roundluk bu gergin kapışmada reflekslerini konuştur.
+            </p>
+            <Link 
+              to="/game/timestop" 
+              className="w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors shadow-md"
+            >
+              <Play size={20} />
+              Oyuna Başla
             </Link>
           </div>
         </div>
