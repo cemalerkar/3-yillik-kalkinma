@@ -91,5 +91,16 @@ export function useLobby(gameId) {
     });
   };
 
-  return { roomId, role, roomData, createRoom, joinRoom, pickRole, startGame, updateText, updateRoomData, submitGame };
+  const sendChatMessage = async (text) => {
+    if (!roomId || !role || !text.trim()) return;
+    const { push } = await import('firebase/database');
+    const chatRef = ref(db, `rooms/${roomId}/chat`);
+    await push(chatRef, {
+      sender: role,
+      text: text.trim(),
+      timestamp: Date.now()
+    });
+  };
+
+  return { roomId, role, roomData, createRoom, joinRoom, pickRole, startGame, updateText, updateRoomData, submitGame, sendChatMessage };
 }

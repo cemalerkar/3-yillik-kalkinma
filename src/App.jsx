@@ -9,6 +9,7 @@ import BestSellerGame from './games/BestSellerGame';
 import OppoPoppositeGame from './games/OppoPoppositeGame';
 import SexidentGame from './games/SexidentGame';
 import TimeStopGame from './games/TimeStopGame';
+import F1ReflexGame from './games/F1ReflexGame';
 import LobbyWrapper from './components/LobbyWrapper';
 
 import PetPage from './pages/PetPage';
@@ -95,6 +96,7 @@ function App() {
             <Route path="/game/oppopopposite" element={<LobbyWrapper gameId="oppopopposite"><OppoPoppositeGame /></LobbyWrapper>} />
             <Route path="/game/sexident" element={<LobbyWrapper gameId="sexident" timerLimit={0}><SexidentGame /></LobbyWrapper>} />
             <Route path="/game/timestop" element={<LobbyWrapper gameId="timestop" timerLimit={0}><TimeStopGame /></LobbyWrapper>} />
+            <Route path="/game/f1reflex" element={<LobbyWrapper gameId="f1reflex" timerLimit={0}><F1ReflexGame /></LobbyWrapper>} />
           </Routes>
         </main>
       </div>

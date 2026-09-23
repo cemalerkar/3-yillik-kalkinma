@@ -3,7 +3,7 @@ import { useLobby } from '../store/useLobby';
 import { Users, Clock } from 'lucide-react';
 
 export default function LobbyWrapper({ gameId, children, timerLimit = 65 }) {
-  const { roomId, role, roomData, createRoom, joinRoom, pickRole, startGame, updateText, updateRoomData, submitGame } = useLobby(gameId);
+  const { roomId, role, roomData, createRoom, joinRoom, pickRole, startGame, updateText, updateRoomData, submitGame, sendChatMessage } = useLobby(gameId);
   const [joinCode, setJoinCode] = useState('');
   const [timeLeft, setTimeLeft] = useState(timerLimit);
 
@@ -110,5 +110,5 @@ export default function LobbyWrapper({ gameId, children, timerLimit = 65 }) {
   }
 
   // Inject room props into the game component
-  return React.cloneElement(children, { roomData, role, roomId, updateText, updateRoomData, submitGame, timeLeft });
+  return React.cloneElement(children, { roomData, role, roomId, updateText, updateRoomData, submitGame, timeLeft, sendChatMessage });
 }

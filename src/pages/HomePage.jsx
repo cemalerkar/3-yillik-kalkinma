@@ -143,6 +143,40 @@ export default function HomePage() {
           </div>
         </div>
       </div>
+
+      {/* 5th Game Spanning 2 Columns Below */}
+      <div className="w-full max-w-4xl mt-8">
+        <div className="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-red-500/20 hover:border-red-500/50 transition-all hover:shadow-[0_8px_30px_rgba(239,68,68,0.15)] flex flex-col group">
+          <div className="h-48 bg-gradient-to-br from-red-900 to-black flex items-center justify-center border-b border-red-500/10 relative overflow-hidden">
+            {/* Decorative pillars */}
+            <div className="absolute left-10 top-0 bottom-0 w-8 flex justify-center opacity-40">
+              <div className="w-1 h-full bg-red-500 mx-1"></div>
+              <div className="w-1 h-full bg-red-500 mx-1"></div>
+            </div>
+            <div className="absolute right-10 top-0 bottom-0 w-8 flex justify-center opacity-40">
+              <div className="w-1 h-full bg-red-500 mx-1"></div>
+              <div className="w-1 h-full bg-red-500 mx-1"></div>
+            </div>
+            
+            <h2 className="text-4xl font-black text-red-500 tracking-tight z-10 group-hover:scale-105 transition-transform flex items-center gap-2">
+              F1 Refleks
+            </h2>
+          </div>
+          <div className="p-6 flex-1 flex flex-col">
+            <p className="text-red-700 font-medium mb-2 italic">"Işıklar söndüğünde kim daha hızlı kalkacak?"</p>
+            <p className="text-gray-600 mb-6 flex-1">
+              F1 pilotlarının kalkış testi! 4 kırmızı ışık rastgele aralıklarla yanacak. Hepsi yandıktan sonra bir anda sönecekler. Işıkların söndüğü an'a en hızlı tepki veren butona basar ve roundu kazanır. Hatalı çıkış yapmamaya dikkat et!
+            </p>
+            <Link 
+              to="/game/f1reflex" 
+              className="w-full py-3 px-4 bg-red-600 hover:bg-red-700 text-white rounded-xl font-semibold flex items-center justify-center gap-2 transition-colors shadow-md"
+            >
+              <Play size={20} />
+              Yarışa Başla
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

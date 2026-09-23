@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/useStore';
 import { Timer, CheckCircle2, Trophy, ArrowRight, Play } from 'lucide-react';
+import ChatBox from '../components/ChatBox';
 
-export default function TimeStopGame({ roomData, role, updateRoomData, submitGame }) {
+export default function TimeStopGame({ roomData, role, updateRoomData, submitGame, sendChatMessage }) {
   const addMoney = useStore(state => state.addMoney);
   const addToArchive = useStore(state => state.addToArchive);
 
@@ -261,6 +262,8 @@ export default function TimeStopGame({ roomData, role, updateRoomData, submitGam
           </div>
         )}
       </div>
+
+      <ChatBox roomData={roomData} role={role} sendChatMessage={sendChatMessage} />
     </div>
   );
 }
